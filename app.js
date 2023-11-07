@@ -1,4 +1,5 @@
-const fs= require('fs')
+const fs= require('./notes.js')
 
-// fs.writeFileSync('notes.txt','My name is Bus')
-fs.appendFileSync('notes.txt','\nThis is an appended text on a new line.')
+const txt= fs();
+
+console.log(txt)

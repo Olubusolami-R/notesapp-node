@@ -36,7 +36,7 @@ yargs.command({
 //create read command
 yargs.command({
     command:'read',
-    describe: 'read note',
+    describe: 'read notes',
     handler: function(){
         console.log('content of note displayed')
     }

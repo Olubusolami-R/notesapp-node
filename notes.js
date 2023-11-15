@@ -6,7 +6,7 @@ const getNotes= function (){
 
 const addNote = function(title, body){
     const notes=loadNotes()
-    const duplicateNotes=notes.filter(function(note){
+    const duplicateNotes=notes.filter((note)=>{
         return note.title === title
     })
     if (duplicateNotes.length===0){
@@ -15,11 +15,11 @@ const addNote = function(title, body){
             'body':body
         })
         saveNotes(notes)
-        console.log("New note added")
+        console.log(chalk.green.inverse("New note added"))
         console.log(notes)
     }
     else{
-        console.log('Note title taken!')
+        console.log(chalk.red.inverse('Note title taken!'))
     }
     
     
@@ -44,6 +44,7 @@ const saveNotes = function(notes){
 const removeNote = function(title){
     const notes=loadNotes()
     try{
+        //Could have just used filter by return !== instead of ===
         for(let i=0; i<notes.length; i++){
             if(notes[i].title===title){
                 notes.splice(i,1)

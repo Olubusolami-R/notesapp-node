@@ -33,9 +33,6 @@ yargs.command({
 yargs.command({
     command:'remove',
     describe: 'remove a note',
-    handler: function(){
-        console.log('removing a note!')
-    },
     handler(argv){
         notes.removeNote(argv.title)
     }
@@ -54,11 +51,19 @@ yargs.command({
 yargs.command({
     command:'read',
     describe: 'read notes',
-    handler(){
-        console.log('Title: ' + argv.title)
+    handler(argv){
+        notes.readNote(argv.title)
     }
 })
 
+//create list command
+yargs.command({
+    command:'list',
+    describe: 'list notes',
+    handler(){
+        notes.listNotes()
+    }
+})
 // console.log(yargs.argv)
 //instead use the command below to ensure things work as expected
 
